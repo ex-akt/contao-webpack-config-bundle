@@ -1,0 +1,9 @@
+{# /templates/layout/fe_page.html5 #}
+
+{% extends '@Contao/fe_page' %}
+
+{% block head %}
+    {{  parent() }}
+
+    <link type="text/css" rel="stylesheet" href="{{ asset('app.css') }}">
+{% endblock %}
