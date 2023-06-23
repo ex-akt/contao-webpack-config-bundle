@@ -17,6 +17,7 @@ use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Exakt\ContaoWebpackConfigBundle\ContaoWebpackConfigBundle;
+use Symfony\Component\Config\Loader\LoaderInterface;
 
 class Plugin implements BundlePluginInterface
 {
@@ -26,5 +27,13 @@ class Plugin implements BundlePluginInterface
             BundleConfig::create(ContaoWebpackConfigBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class]),
         ];
+    }
+
+     /**
+     * {@inheritdoc}
+     */
+    public function registerContainerConfiguration(LoaderInterface $loader, array $config)
+    {
+        $loader->load(__DIR__.'/../../config/config.yml');
     }
 }
