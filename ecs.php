@@ -9,7 +9,7 @@ return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->sets([__DIR__.'/tools/ecs/vendor/contao/easy-coding-standard/config/contao.php']);
 
     $ecsConfig->ruleWithConfiguration(HeaderCommentFixer::class, [
-        'header' => "This file is part of [package name].\n\n(c) John Doe\n\n@license LGPL-3.0-or-later"
+        'header' => "This file is part of ex-akt/contao-webpack-config-bundle.\n\n(c) ex-akt.de\n\n@license LGPL-3.0-or-later"
     ]);
 
     if (PHP_VERSION_ID < 80000) {

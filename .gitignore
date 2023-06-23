@@ -1,6 +1,7 @@
 # Composer
 /composer.lock
 /vendor/
+/node_modules/
 
 # PhpUnit
 /.phpunit.result.cache
@@ -8,3 +9,5 @@
 
 # Tools
 /tools/*/vendor
+
+.DS_Store

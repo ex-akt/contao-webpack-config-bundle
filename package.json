@@ -1,0 +1,26 @@
+{
+  "name": "contao-webpack-config-bundle",
+  "description": "no desc",
+  "author": "samuel.heer@ex-akt.de",
+  "private": true,
+  "scripts": {
+    "dev": "node_modules/.bin/encore dev --watch",
+    "prod": "node_modules/.bin/encore production"
+  },
+  "license": "commercial",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^4.2.0",
+    "animate-sass": "^0.8.2",
+    "autoprefixer": "^10.4.14",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "image-webpack-loader": "^8.1.0",
+    "node-sass": "^8.0.0",
+    "postcss-loader": "^7.2.4",
+    "sass-loader": "^13.2.2",
+    "script-loader": "^0.7.2"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ios >= 8"
+  ]
+}
