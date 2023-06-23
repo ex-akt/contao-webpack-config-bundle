@@ -2,8 +2,18 @@
 
 {% extends '@Contao/fe_page' %}
 
+{% if viewport is empty %}
+    {% set viewport =  '<meta name="viewport" content="width=device-width,initial-scale=1.0">' %}
+{% endif %}
+
 {% block head %}
     {{  parent() }}
 
     <link type="text/css" rel="stylesheet" href="{{ asset('app.css') }}">
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    <script src="{{ asset('app.js') }}"></script>
 {% endblock %}
