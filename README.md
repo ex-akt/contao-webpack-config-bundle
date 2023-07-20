@@ -48,3 +48,7 @@ Füge der Mage-Konfiguration folgende Zeile hinzu:
 ```
 
 > **_Hinweis:_** Dieser Code funktioniert nicht zuverlässig auf allen Geräten, daher ist der Mage-Teil Produktion als "buggy" einzustufen.
+
+
+## Bekannte Schwachstellen:
+1. Beim zukünfigten composer-Update fragt composer, was er mit Änderungen im Package contao-webpack-config-bundle machen soll. An dieser Stelle kann mit "y" geantwortet werden.
