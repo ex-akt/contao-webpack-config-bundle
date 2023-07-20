@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 /*
- * This file is part of [package name].
+ * This file is part of ex-akt/contao-webpack-config-bundle.
  *
- * (c) John Doe
+ * (c) ex-akt.de
  *
  * @license LGPL-3.0-or-later
  */
