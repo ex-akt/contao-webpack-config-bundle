@@ -1,54 +1,50 @@
-# Contao 4 skeleton bundle
+# ex-akt Webpack Config Bundle
 
-Contao is an Open Source PHP Content Management System for people who want a
-professional website that is easy to maintain. Visit the [project website][1]
-for more information.
-
-You can use the skeleton bundle as basis for your own Contao bundle.
+Dieses Bundle enthält eine standardisierte Webpack-Config für alle Kundenprojekte.
+Damit muss nicht bei jedem Kundenprojekt die npm Abhängigkeiten laufend aktuell gehalten werden, sondern die Abhängigkeiten werden in diesem Bundle gepflegt.
 
 ## Install
-
-Download the skeleton bundle:
-
 ```bash
-wget https://github.com/contao/skeleton-bundle/archive/main.zip
-unzip main.zip
-mv skeleton-bundle-main [package name]
-cd [package name]
+composer require ex-akt/contao-webpack-config-bundle
 ```
 
-## Customize
+Ergänze folgende Scripts in deiner Root composer.json:
+```json
+ "scripts": {
+   ...
+    "npm-install":[
+        "npm --prefix vendor/ex-akt/contao-webpack-config-bundle install"
+        ],
+    "dev": [
+        "npm --prefix vendor/ex-akt/contao-webpack-config-bundle run dev"
+        ],
+    "prod": [
+        "npm --prefix vendor/ex-akt/contao-webpack-config-bundle run prod"
+        ]
+    }
+````
 
-First adjust the following files:
-
- * `composer.json`
- * `ecs.php`
- * `LICENSE`
- * `phpunit.xml.dist`
- * `README.md`
-
-Then rename the following files and/or the references to `SkeletonBundle` in
-the following files:
-
- * `src/ContaoManager/Plugin.php`
- * `src/DependencyInjection/ContaoSkeletonExtension.php`
- * `src/ContaoSkeletonBundle.php`
- * `tests/ContaoSkeletonBundleTest.php`
-
-Finally, add your custom classes and resources. Make sure to register your services
-within `src/Resources/config/services.yml`. Also make sure to
-[adjust the Contao Manager Plugin][2] (and the dependencies within the `composer.json`)
-accordingly, if your bundle makes adjustments to other bundles (e.g. adjustments
-to a DCA of other bundles).
-
-## Release
-
-Run the PHP-CS-Fixer and the unit test before you release your bundle:
-
+## Anwendung
+Nach dem ersten composer require, oder composer update müssen die npm-Abhängigkeiten geladen werden:
 ```bash
-vendor/bin/ecs check src/ tests/ --fix
-vendor/bin/phpunit
+composer run npm-install
 ```
 
-[1]: https://contao.org
-[2]: https://docs.contao.org/dev/framework/manager-plugin/#the-bundleplugininterface
+Danach kann die lokale Entwicklungsumgebung gestartet werden:
+```bash
+composer run dev
+```
+
+## Projekt-Deployment
+Für die Einbindung von Webpack ins Projekt-Deployment kann das Skript "prod" aufgerufen werden:
+```bash
+composer run prod
+```
+
+### Deployment über Mage
+Füge der Mage-Konfiguration folgende Zeile hinzu:
+```yml
+- exec: { cmd: 'php -d memory_limit=-1 /usr/local/bin/composer.phar run prod', desc: 'Running Symfony Encore' }
+```
+
+> **_Hinweis:_** Dieser Code funktioniert nicht zuverlässig auf allen Geräten, daher ist der Mage-Teil Produktion als "buggy" einzustufen.
