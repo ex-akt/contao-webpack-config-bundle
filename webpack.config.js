@@ -49,7 +49,7 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     .addPlugin(new BrowserSyncPlugin({
-        host: 'https://'+path.basename(path.normalize(path.dirname(__filename)+'./../../../'))+'.test',
+        host: path.basename(path.normalize(path.dirname(__filename)+'./../../../'))+'.test',
         proxy: 'https://'+path.basename(path.normalize(path.dirname(__filename)+'./../../../'))+'.test',
         files:[
             {
