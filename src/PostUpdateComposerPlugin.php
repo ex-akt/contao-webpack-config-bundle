@@ -36,7 +36,11 @@ class PostUpdateComposerPlugin implements PluginInterface, EventSubscriberInterf
     public function onPostInstallUpdate(Event $event)
     {
         $io = $event->getIO();
-        $io->write("Running custom script from plugin.");
-        // Füge hier deinen Code hinzu
+        $executor = new ProcessExecutor($io);
+
+        $io->write("Running npm install...");
+        $executor->execute('npm install', $output);
+
+        $io->write($output);
     }
 }
