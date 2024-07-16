@@ -51,13 +51,7 @@
             "target-directory": "tools"
         },
         "contao-manager-plugin": "Exakt\\ContaoWebpackConfigBundle\\ContaoManager\\Plugin",
-        "class": "Exakt\\ContaoWebpackConfigBundle\\PostUpdateComposerPlugin",
-        "composer-scripts": {
-            "dev": [
-                "Composer\\Config::disableProcessTimeout",
-                "npm --prefix vendor/ex-akt/contao-webpack-config-bundle run dev"
-            ]
-        }
+        "class": "Exakt\\ContaoWebpackConfigBundle\\PostUpdateComposerPlugin"
     },
     "scripts": {
         "all": [
