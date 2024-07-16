@@ -3,7 +3,9 @@
 Dieses Bundle enthält eine standardisierte Webpack-Config für alle Kundenprojekte.
 Damit muss nicht bei jedem Kundenprojekt die npm Abhängigkeiten laufend aktuell gehalten werden, sondern die Abhängigkeiten werden in diesem Bundle gepflegt.
 
-## Install
+## Installation
+> [!IMPORTANT]
+> Bei der Installation des Moduls sollte ```"ex-akt/contao-webpack-config-bundle": true``` unter ```allow-plugins``` hinzugefügt werden.
 ```bash
 composer require ex-akt/contao-webpack-config-bundle
 ```
@@ -29,12 +31,10 @@ npm -v
 
 ## Upgrade
 Beim Update auf Version 2.0 kann in deiner Root composer.json das Skript npm-install entfernt werden. 
-Außerdem sollte ```"ex-akt/contao-webpack-config-bundle": true``` unter ```allow-plugins``` hinzugefügt werden.
 
 ## Anwendung
 > [!IMPORTANT]
 > Ab Version 2.0 wird beim Update oder Installation des Moduls automatisch ein Update der npm-Abhängigkeiten durchgeführt. Eine manuelle Installation der Abhängigkeiten wird nicht mehr benötigt.
-
 
 Die lokale Entwicklungsumgebung kann so gestartet werden:
 ```bash
@@ -50,11 +50,7 @@ composer run prod
 ### Deployment über deployer
 Nutze die ex-akt recipes für deployer
 ```bash
-composer require-dev  ex-akt/deployer-recipes
+composer require-dev ex-akt/deployer-recipes
 ```
 
 Über den Aufruf dep ```deploy:encore:compile``` werden die Assets kompiliert und mit im Projekt deployed.
-
-
-## Bekannte Schwachstellen:
-1. Beim zukünfigten composer-Update fragt composer, was er mit Änderungen im Package contao-webpack-config-bundle machen soll. An dieser Stelle kann mit "y" geantwortet werden.
