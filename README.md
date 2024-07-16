@@ -21,7 +21,7 @@ Ergänze folgende Scripts in deiner Root composer.json:
     }
 ````
 ## Vorraussetzungen
-Lauffähige Version von Node.js und npm [Installationsanleitung](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). 
+Lauffähige Version von Node.js und npm ([Installationsanleitung](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)). 
 Zur Überprüfung, ob npm bei dir bereits installiert ist, kannst du es folgendem Aufruf testen:
 ```bash
 npm -v
@@ -32,7 +32,8 @@ Beim Update auf Version 2.0 kann in deiner Root composer.json das Skript npm-ins
 Außerdem sollte ```"ex-akt/contao-webpack-config-bundle": true``` unter ```allow-plugins``` hinzugefügt werden.
 
 ## Anwendung
-> **_Hinweis:_** Ab Version 2.0 wird beim Update oder Installation des Moduls automatisch ein Update der npm-Abhängigkeiten durchgeführt. Eine manuelle Installation der Abhängigkeiten wird nicht mehr benötigt.
+> [!IMPORTANT]
+> Ab Version 2.0 wird beim Update oder Installation des Moduls automatisch ein Update der npm-Abhängigkeiten durchgeführt. Eine manuelle Installation der Abhängigkeiten wird nicht mehr benötigt.
 
 
 Die lokale Entwicklungsumgebung kann so gestartet werden:
