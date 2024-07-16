@@ -22,8 +22,7 @@
         "contao/manager-plugin": "^2.0",
         "phpunit/phpunit": "^9.5",
         "symfony/phpunit-bridge": "^6.1",
-        "composer/composer": "^2.7",
-        "ex-akt/composer-npm-install-plugin": "dev-main"
+        "composer/composer": "^2.0"
     },
     "conflict": {
         "contao/manager-plugin": "<2.0 || >=3.0"
