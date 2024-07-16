@@ -50,7 +50,7 @@ class PostUpdateComposerPlugin implements PluginInterface, EventSubscriberInterf
         $executor = new ProcessExecutor($io);
 
         $io->write('Running npm install...');
-        $executor->execute('npm install', $output);
+        $executor->execute('npm --prefix vendor/ex-akt/contao-webpack-config-bundle install', $output);
 
         $io->write($output);
     }
