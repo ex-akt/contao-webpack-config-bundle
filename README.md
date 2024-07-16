@@ -12,9 +12,6 @@ Ergänze folgende Scripts in deiner Root composer.json:
 ```json
  "scripts": {
    ...
-    "npm-install":[
-        "npm --prefix vendor/ex-akt/contao-webpack-config-bundle install"
-        ],
     "dev": [
         "npm --prefix vendor/ex-akt/contao-webpack-config-bundle run dev"
         ],
@@ -23,14 +20,22 @@ Ergänze folgende Scripts in deiner Root composer.json:
         ]
     }
 ````
-
-## Anwendung
-Nach dem ersten composer require, oder composer update müssen die npm-Abhängigkeiten geladen werden:
+## Vorraussetzungen
+Lauffähige Version von Node.js und npm [Installationsanleitung](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). 
+Zur Überprüfung, ob npm bei dir bereits installiert ist, kannst du es folgendem Aufruf testen:
 ```bash
-composer run npm-install
+npm -v
 ```
 
-Danach kann die lokale Entwicklungsumgebung gestartet werden:
+## Upgrade
+Beim Update auf Version 2.0 kann in deiner Root composer.json das Skript npm-install entfernt werden. 
+Außerdem sollte ```"ex-akt/contao-webpack-config-bundle": true``` unter ```allow-plugins``` hinzugefügt werden.
+
+## Anwendung
+> **_Hinweis:_** Ab Version 2.0 wird beim Update oder Installation des Moduls automatisch ein Update der npm-Abhängigkeiten durchgeführt. Eine manuelle Installation der Abhängigkeiten wird nicht mehr benötigt.
+
+
+Die lokale Entwicklungsumgebung kann so gestartet werden:
 ```bash
 composer run dev
 ```
@@ -41,13 +46,13 @@ Für die Einbindung von Webpack ins Projekt-Deployment kann das Skript "prod" au
 composer run prod
 ```
 
-### Deployment über Mage
-Füge der Mage-Konfiguration folgende Zeile hinzu:
-```yml
-- exec: { cmd: 'php -d memory_limit=-1 /usr/local/bin/composer.phar run prod', desc: 'Running Symfony Encore' }
+### Deployment über deployer
+Nutze die ex-akt recipes für deployer
+```bash
+composer require-dev  ex-akt/deployer-recipes
 ```
 
-> **_Hinweis:_** Dieser Code funktioniert nicht zuverlässig auf allen Geräten, daher ist der Mage-Teil Produktion als "buggy" einzustufen.
+Über den Aufruf dep ```deploy:encore:compile``` werden die Assets kompiliert und mit im Projekt deployed.
 
 
 ## Bekannte Schwachstellen:
