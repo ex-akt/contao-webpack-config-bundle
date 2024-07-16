@@ -17,12 +17,23 @@ use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
+use Composer\Util\ProcessExecutor;
 
 class PostUpdateComposerPlugin implements PluginInterface, EventSubscriberInterface
 {
-    public function activate(Composer $composer, IOInterface $io)
+    public function activate(Composer $composer, IOInterface $io): void
     {
         // Aktivierungslogik
+    }
+
+    public function deactivate(Composer $composer, IOInterface $io): void
+    {
+        // Deaktivierungslogik, falls erforderlich
+    }
+
+    public function uninstall(Composer $composer, IOInterface $io): void
+    {
+        // Deinstallationslogik, falls erforderlich
     }
 
     public static function getSubscribedEvents()
@@ -33,12 +44,12 @@ class PostUpdateComposerPlugin implements PluginInterface, EventSubscriberInterf
         ];
     }
 
-    public function onPostInstallUpdate(Event $event)
+    public function onPostInstallUpdate(Event $event): void
     {
         $io = $event->getIO();
         $executor = new ProcessExecutor($io);
 
-        $io->write("Running npm install...");
+        $io->write('Running npm install...');
         $executor->execute('npm install', $output);
 
         $io->write($output);

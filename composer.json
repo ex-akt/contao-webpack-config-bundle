@@ -2,7 +2,7 @@
     "name": "ex-akt/contao-webpack-config-bundle",
     "description": "Shared Webpack Config for our customer Contao projects",
     "license": "LGPL-3.0-or-later",
-    "type": "contao-bundle",
+    "type": "composer-plugin",
     "authors": [
         {
             "name": "Samuel Heer",
@@ -21,7 +21,8 @@
         "bamarni/composer-bin-plugin": "^1.5",
         "contao/manager-plugin": "^2.0",
         "phpunit/phpunit": "^9.5",
-        "symfony/phpunit-bridge": "^6.1"
+        "symfony/phpunit-bridge": "^6.1",
+        "composer/composer": "^2.7"
     },
     "conflict": {
         "contao/manager-plugin": "<2.0 || >=3.0"
