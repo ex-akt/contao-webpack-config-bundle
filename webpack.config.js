@@ -40,9 +40,6 @@ Encore
     // optimize css files
     .enablePostCssLoader()
 
-    // allow legacy applications to use $/jQuery as a global variable
-    //.autoProvidejQuery()
-
     .enableSourceMaps(!Encore.isProduction())
 
     // create hashed filenames (e.g. app.abc123.css)
@@ -51,6 +48,7 @@ Encore
     .addPlugin(new BrowserSyncPlugin({
         host: path.basename(path.normalize(path.dirname(__filename)+'./../../../'))+'.test',
         proxy: 'https://'+path.basename(path.normalize(path.dirname(__filename)+'./../../../'))+'.test',
+        open: false,
         files:[
             {
                 match: ['../../../public/layout/**/*.js', '../../..public/layout/**/*.css'],
